@@ -1,0 +1,58 @@
+[
+  {
+    "timestamp": "12313131233",
+    "stock": 15,
+    "nombre": "Aceite Petronas Syntium 1000",
+    "precio": 5050,
+    "url": "https://http2.mlstatic.com/D_NQ_NP_861876-MLA32775871655_112019-O.webp",
+    "id": 1
+  },
+  {
+    "timestamp": "213132123",
+    "stock": 12,
+    "nombre": "Kit Cree Led c6",
+    "precio": 1650,
+    "url": "https://http2.mlstatic.com/D_NQ_NP_610485-MLA47250643970_082021-O.webp",
+    "id": 2
+  },
+  {
+    "timestamp": "21312313",
+    "stock": 10,
+    "nombre": "Kit de Filtros Wega Toyota Hilux",
+    "precio": 7250,
+    "url": "https://http2.mlstatic.com/D_NQ_NP_879417-MLA45434903832_042021-O.webp",
+    "id": 3
+  },
+  {
+    "timestamp": "12313123",
+    "stock": 10,
+    "nombre": "Lámpara Bosch H7 Plus",
+    "precio": 1500,
+    "url": "https://http2.mlstatic.com/D_NQ_NP_980071-MLA49849692574_052022-O.webp",
+    "id": 4
+  },
+  {
+    "timestamp": "12313132",
+    "stock": 15,
+    "nombre": "Aceite Liqui Moly 10W-40",
+    "precio": 8900,
+    "url": "https://http2.mlstatic.com/D_NQ_NP_894202-MLA43996908064_112020-O.webp",
+    "id": 5
+  },
+  {
+    "timestamp": "23121223",
+    "stock": 15,
+    "nombre": "Aceite Mobil 10W-40",
+    "precio": 5400,
+    "url": "https://http2.mlstatic.com/D_NQ_NP_2X_995600-MLA49805367577_042022-F.webp",
+    "id": 6
+  },
+  {
+    "timestamp": "1667076762921",
+    "stock": 25,
+    "nombre": "Kit de Filtros Wega Ford Ranger",
+    "precio": 7500,
+    "url": "https://http2.mlstatic.com/D_NQ_NP_842449-MLA47074903797_082021-O.webp",
+    "id": 7
+  }
+]
