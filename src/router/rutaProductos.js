@@ -2,7 +2,7 @@ const express = require("express")
 const rutaProductos = express.Router()
 
 const Contenedor = require ("../clases/Contenedor.js")
-const data = new Contenedor ("/data/productos.txt")
+const data = new Contenedor ("./data/productos.txt")
 
 // verificacion rol
 let rol = "admin"

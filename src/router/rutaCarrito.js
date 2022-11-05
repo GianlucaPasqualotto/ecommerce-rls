@@ -57,4 +57,4 @@ rutaCarrito.delete("/:id/productos/:id_prod", async(req,res)=>{
         res.send(carrito)
     }
 })
-module.exports(rutaCarrito)
+module.exports = rutaCarrito
