@@ -16,7 +16,7 @@ rutaCarrito.get("/:id/productos",async (req,res)=>{
 })
 
 // crear carrito
-rutaCarrito.post("/", async(req,res)=>{
+rutaCarrito.post('/', async(req,res)=>{
     const newId = await data.newId()
     res.send(newId)
 })
