@@ -1,40 +1,45 @@
-const express = require('express')
-const handlebars = require('express-handlebars')
-const { Server: HttpServer } = require("http");
-const { Server: Socket } = require("socket.io");
+import express from "express";
+// import { logger } from "handlebars";
+import MongoStore from "connect-mongo";
+import passport from "passport";
+import {cartsRouter} from "./routes/carritos.js";
+import {productsRouter} from "./routes/products.js";
+import { authRouter } from "./routes/auth.js";
+import { logger } from "./loggers/logger.js";
+import { options } from "./config/databaseConfig.js"
+import session from "express-session";
 
-//export rutas
-const rutaCarrito = require ("./router/rutaCarrito.js")
-const rutaProductos = require ("./router/rutaProductos.js")
+// Instancia servidor con express
+const app = express();
 
-const app = express()
-const httpServer = new HttpServer(app);
-const io = new Socket(httpServer);
+// Configuración servidor
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
-// configuracion JSON
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
+// Configuracion de la sesion
+app.use(session({
+    //donde se guardan las sesiones
+    store: MongoStore.create({
+        mongoUrl:options.mongoDB.url
+    }),
+    secret:"claveSecreta",
+    resave:false,
+    saveUninitialized:false
+}));
 
-// configuracion puerto
-const PORT = process.env.PORT || 8080
+// Configuración passport
+app.use(passport.initialize());
+app.use(passport.session());
 
-const server = httpServer.listen(PORT, ()=>console.log(`Servidor ${PORT}`))
+// Router carrito y productos
+app.use('/api/auth', authRouter);
+app.use('/api/productos', productsRouter);
+app.use('/api/carritos', cartsRouter);
 
-app.use(express.static("views"))
-
-// motor plantilla
-app.engine("handlebars", handlebars.engine())
-
-// directorio
-app.set("views", "./views")
-
-//motor express
-app.set("view engine", "handlebars")
-
-//definicion rutas
-app.use("/api/carrito", rutaCarrito)
-app.use("/api/productos", rutaProductos)
-
-io.on("connection",(socket)=>{
-    console.log(socket.id);
+// Ejecución del servidor
+const PORT = 8080;
+const server = app.listen(PORT, () => {
+    logger.info(`Server listening on port ${PORT}`);
 })
+server.on('error', error => logger.fatal(`Error in server ${error}`));
