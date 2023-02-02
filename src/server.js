@@ -1,5 +1,4 @@
 import express from "express";
-// import { logger } from "handlebars";
 import MongoStore from "connect-mongo";
 import passport from "passport";
 import {cartsRouter} from "./routes/carritos.js";
